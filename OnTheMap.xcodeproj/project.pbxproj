@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5308DC58215C006000351DA2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5308DC57215C006000351DA2 /* Constants.swift */; };
 		53A442F1215ADAC5007791EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A442F0215ADAC5007791EF /* AppDelegate.swift */; };
 		53A442F3215ADAC5007791EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A442F2215ADAC5007791EF /* ViewController.swift */; };
 		53A442F6215ADAC5007791EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53A442F4215ADAC5007791EF /* Main.storyboard */; };
@@ -17,6 +18,10 @@
 		53A44314215ADACA007791EF /* OnTheMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A44313215ADACA007791EF /* OnTheMapUITests.swift */; };
 		53A44327215ADE5E007791EF /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53A44326215ADE5E007791EF /* Login.storyboard */; };
 		53A4432B215AE836007791EF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A4432A215AE836007791EF /* LoginViewController.swift */; };
+		53DF8865216D105200C00462 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DF8864216D105200C00462 /* Enums.swift */; };
+		53DF8867216D10E600C00462 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DF8866216D10E600C00462 /* ServiceManager.swift */; };
+		53DF8869216D136F00C00462 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DF8868216D136F00C00462 /* ServiceError.swift */; };
+		53DF886B216D17E700C00462 /* EnvironmentVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DF886A216D17E700C00462 /* EnvironmentVariables.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5308DC57215C006000351DA2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		53A442ED215ADAC5007791EF /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53A442F0215ADAC5007791EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53A442F2215ADAC5007791EF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +59,10 @@
 		53A44315215ADACA007791EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53A44326215ADE5E007791EF /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		53A4432A215AE836007791EF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		53DF8864216D105200C00462 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		53DF8866216D10E600C00462 /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
+		53DF8868216D136F00C00462 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
+		53DF886A216D17E700C00462 /* EnvironmentVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentVariables.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +90,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5308DC50215BCC6900351DA2 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				53DF8866216D10E600C00462 /* ServiceManager.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		53A442E4215ADAC5007791EF = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +164,10 @@
 		53A44322215ADCFD007791EF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5308DC57215C006000351DA2 /* Constants.swift */,
+				53DF8864216D105200C00462 /* Enums.swift */,
+				53DF8868216D136F00C00462 /* ServiceError.swift */,
+				53DF886A216D17E700C00462 /* EnvironmentVariables.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -153,6 +175,7 @@
 		53A44323215ADD03007791EF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				5308DC50215BCC6900351DA2 /* Service */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -306,10 +329,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53DF8869216D136F00C00462 /* ServiceError.swift in Sources */,
 				53A442F9215ADAC5007791EF /* OnTheMap.xcdatamodeld in Sources */,
+				53DF886B216D17E700C00462 /* EnvironmentVariables.swift in Sources */,
 				53A442F3215ADAC5007791EF /* ViewController.swift in Sources */,
 				53A4432B215AE836007791EF /* LoginViewController.swift in Sources */,
 				53A442F1215ADAC5007791EF /* AppDelegate.swift in Sources */,
+				53DF8865216D105200C00462 /* Enums.swift in Sources */,
+				53DF8867216D10E600C00462 /* ServiceManager.swift in Sources */,
+				5308DC58215C006000351DA2 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
