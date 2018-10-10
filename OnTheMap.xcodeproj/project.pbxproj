@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5308DC58215C006000351DA2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5308DC57215C006000351DA2 /* Constants.swift */; };
+		534F5081216EA65D0021A41C /* JSONResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F5080216EA65D0021A41C /* JSONResponse.swift */; };
 		53A442F1215ADAC5007791EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A442F0215ADAC5007791EF /* AppDelegate.swift */; };
 		53A442F3215ADAC5007791EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A442F2215ADAC5007791EF /* ViewController.swift */; };
 		53A442F6215ADAC5007791EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53A442F4215ADAC5007791EF /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		5308DC57215C006000351DA2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		534F5080216EA65D0021A41C /* JSONResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONResponse.swift; sourceTree = "<group>"; };
 		53A442ED215ADAC5007791EF /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53A442F0215ADAC5007791EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53A442F2215ADAC5007791EF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				53DF8864216D105200C00462 /* Enums.swift */,
 				53DF8868216D136F00C00462 /* ServiceError.swift */,
 				53DF886A216D17E700C00462 /* EnvironmentVariables.swift */,
+				534F5080216EA65D0021A41C /* JSONResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				53A442F1215ADAC5007791EF /* AppDelegate.swift in Sources */,
 				53DF8865216D105200C00462 /* Enums.swift in Sources */,
 				53DF8867216D10E600C00462 /* ServiceManager.swift in Sources */,
+				534F5081216EA65D0021A41C /* JSONResponse.swift in Sources */,
 				5308DC58215C006000351DA2 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

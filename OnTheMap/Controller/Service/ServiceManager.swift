@@ -68,7 +68,7 @@ class ServiceManager {
                 code >= 200 &&  code <= 299 else {
                     if let data = data {
                         let newData = data.subdata(in: Range(uncheckedBounds: (5, data.count)))
-                        let parsedResult = JSON.deserialize(data: newData) as? [String:AnyObject]
+                        let parsedResult = JSONResponse.deserialize(data: newData) as? [String:AnyObject]
                         let errorResponse = ServiceError(dictionary: parsedResult!)
                         failure(errorResponse)
                     } else {
@@ -81,8 +81,6 @@ class ServiceManager {
             success(data)
         }
         dataTask.resume()
-        
-        
     }
     
 }

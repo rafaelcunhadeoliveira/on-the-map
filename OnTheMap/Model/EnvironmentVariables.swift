@@ -22,5 +22,18 @@ class EnvironmentVariables {
     let parseRestApiKey: String = "QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY"
     let baseUdacityUrl: String = "https://www.udacity.com"
     let baseParseUrl: String = "https://parse.udacity.com"
+    let sessionUrl: String = "/api/session"
+    let locationUrl: String = "/parse/classes/StudentLocation"
+
+    var udacitySession: String {
+        return baseUdacityUrl + sessionUrl
+    }
     
+    func getURLUserInfo(userKey: String) -> String {
+        return baseUdacityUrl + "/api/users/\(userKey)"
+    }
+
+    func getStudentsLocationURL() -> String {
+        return baseParseUrl + locationUrl
+    }
 }
