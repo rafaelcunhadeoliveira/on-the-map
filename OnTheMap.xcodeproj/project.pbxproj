@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5308DC58215C006000351DA2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5308DC57215C006000351DA2 /* Constants.swift */; };
+		534987A12177C9B40054784B /* LoginServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534987A02177C9B40054784B /* LoginServiceManager.swift */; };
 		534F5081216EA65D0021A41C /* JSONResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F5080216EA65D0021A41C /* JSONResponse.swift */; };
 		53A442F1215ADAC5007791EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A442F0215ADAC5007791EF /* AppDelegate.swift */; };
 		53A442F3215ADAC5007791EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A442F2215ADAC5007791EF /* ViewController.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		5308DC57215C006000351DA2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		534987A02177C9B40054784B /* LoginServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceManager.swift; sourceTree = "<group>"; };
 		534F5080216EA65D0021A41C /* JSONResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONResponse.swift; sourceTree = "<group>"; };
 		53A442ED215ADAC5007791EF /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53A442F0215ADAC5007791EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				53DF8866216D10E600C00462 /* ServiceManager.swift */,
+				534987A02177C9B40054784B /* LoginServiceManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53DF8869216D136F00C00462 /* ServiceError.swift in Sources */,
+				534987A12177C9B40054784B /* LoginServiceManager.swift in Sources */,
 				53A442F9215ADAC5007791EF /* OnTheMap.xcdatamodeld in Sources */,
 				53DF886B216D17E700C00462 /* EnvironmentVariables.swift in Sources */,
 				53A442F3215ADAC5007791EF /* ViewController.swift in Sources */,

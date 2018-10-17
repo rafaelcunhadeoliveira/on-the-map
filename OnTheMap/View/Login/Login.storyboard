@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FCY-5p-CGG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FCY-5p-CGG">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,6 +18,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="3TY-ZS-U1z">
+                                <rect key="frame" x="167.66666666666666" y="386" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="51f-X6-v9v"/>
+                                    <constraint firstAttribute="width" constant="40" id="BH4-Xa-6ln"/>
+                                </constraints>
+                            </activityIndicatorView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Xrr-9f-kiB">
                                 <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <subviews>
@@ -32,7 +39,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login to Udacity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mbb-53-eZq">
-                                                <rect key="frame" x="12.333333333333329" y="200" width="124.99999999999999" height="20.333333333333343"/>
+                                                <rect key="frame" x="12.666666666666664" y="200" width="124.66666666666669" height="20.333333333333343"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -49,7 +56,10 @@
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="email"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="FCY-5p-CGG" id="mFq-IY-RH8"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="je9-Yj-L19">
                                                 <rect key="frame" x="0.0" y="50" width="220" height="30"/>
@@ -58,7 +68,10 @@
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="FCY-5p-CGG" id="cg2-zY-Zaa"/>
+                                                </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uik-Uy-e4b">
                                                 <rect key="frame" x="0.0" y="100" width="220" height="30"/>
@@ -94,7 +107,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="3TY-ZS-U1z" firstAttribute="centerY" secondItem="rEj-TZ-hfM" secondAttribute="centerY" id="MOj-zp-hFa"/>
                             <constraint firstItem="P6Y-gW-5pY" firstAttribute="bottom" secondItem="Xrr-9f-kiB" secondAttribute="bottom" id="Z1V-g1-RgM"/>
+                            <constraint firstItem="3TY-ZS-U1z" firstAttribute="centerX" secondItem="rEj-TZ-hfM" secondAttribute="centerX" id="czh-GY-0Xz"/>
                             <constraint firstItem="Xrr-9f-kiB" firstAttribute="leading" secondItem="P6Y-gW-5pY" secondAttribute="leading" id="ePn-xs-0FR"/>
                             <constraint firstItem="Xrr-9f-kiB" firstAttribute="top" secondItem="P6Y-gW-5pY" secondAttribute="top" id="h7t-KL-Pzi"/>
                             <constraint firstItem="P6Y-gW-5pY" firstAttribute="trailing" secondItem="Xrr-9f-kiB" secondAttribute="trailing" id="o7M-db-85U"/>
@@ -102,6 +117,7 @@
                         <viewLayoutGuide key="safeArea" id="P6Y-gW-5pY"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="3TY-ZS-U1z" id="jJ8-rc-Vzf"/>
                         <outlet property="emailTextField" destination="nyV-Pt-u0d" id="qxn-PI-T9T"/>
                         <outlet property="passwordTextField" destination="je9-Yj-L19" id="DHP-ra-LXq"/>
                     </connections>

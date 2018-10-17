@@ -9,10 +9,17 @@
 import Foundation
 
 class Constants {
+    
+    class func sharedInstance() -> Constants {
+        struct Singleton {
+            static var sharedInstance = Constants()
+        }
+        return Singleton.sharedInstance
+    }
     public let udacityUrl =  "https://www.udacity.com/"
     public let apiSession =  "api/session"
     
-    public lazy var sessionURL: String = {
-        return udacityUrl + apiSession
-    }()
+    class func getSessionURL() -> String {
+        return Constants.sharedInstance().udacityUrl + Constants.sharedInstance().apiSession
+    }
 }

@@ -45,15 +45,13 @@ class ServiceManager {
         }
 
         if let parameters = parameters {
-            for parameter in parameters {
                 do {
-                    request.httpBody = try JSONSerialization.data(withJSONObject: parameter, options: .prettyPrinted)
+                    request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
                 } catch {
                     let error = ServiceError(code: "", error: "Parsin Error")
                     failure(error)
                     completion()
                 }
-            }
         }
         
         //session
