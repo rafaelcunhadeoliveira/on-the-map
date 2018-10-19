@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "OnTheMap/Controller/Service/LoginServiceManager.swift"
-            timestampString = "561508176.454988"
+            filePath = "OnTheMap/View/Login/LoginViewController.swift"
+            timestampString = "561674847.006385"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "login(userName:password:success:failure:completion:)"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "Loading(activate:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,45 +26,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnTheMap/View/Login/LoginViewController.swift"
-            timestampString = "561508176.456097"
+            timestampString = "561674847.006482"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "requestLogin(userName:password:)"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "Loading(activate:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.String) -&gt; () in OnTheMap.LoginViewController.(requestLogin in _C491A292BDC1757D79EC3993B7A38F90)(userName: Swift.String, password: Swift.String) -&gt; ()"
-                  moduleName = "OnTheMap"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rafael/Desktop/nanodegree/OnTheMap/OnTheMap/View/Login/LoginViewController.swift"
-                  timestampString = "561508176.788335"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76"
-                  offsetFromSymbolStart = "12">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (OnTheMap.ServiceError) -&gt; () in OnTheMap.LoginViewController.(requestLogin in _C491A292BDC1757D79EC3993B7A38F90)(userName: Swift.String, password: Swift.String) -&gt; ()"
-                  moduleName = "OnTheMap"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rafael/Desktop/nanodegree/OnTheMap/OnTheMap/View/Login/LoginViewController.swift"
-                  timestampString = "561508176.790856"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "77"
-                  endingLineNumber = "77"
-                  offsetFromSymbolStart = "45">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -73,12 +41,28 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "OnTheMap/View/Login/LoginViewController.swift"
-            timestampString = "561508176.456202"
+            filePath = "OnTheMap/View/LoginViewController.swift"
+            timestampString = "561672550.400776"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "loginButtonPressed(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OnTheMap/View/LoginViewController.swift"
+            timestampString = "561672550.40113"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
             landmarkName = "requestLogin(userName:password:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -89,13 +73,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "OnTheMap/Controller/Service/LoginServiceManager.swift"
-            timestampString = "561508176.45661"
+            filePath = "OnTheMap/View/LoginViewController.swift"
+            timestampString = "561672550.401401"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "login(userName:password:success:failure:completion:)"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "requestLogin(userName:password:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -105,29 +89,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "OnTheMap/Controller/Service/LoginServiceManager.swift"
-            timestampString = "561508176.457342"
+            filePath = "OnTheMap/View/LoginViewController.swift"
+            timestampString = "561672550.401657"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "login(userName:password:success:failure:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OnTheMap/Controller/Service/ServiceManager.swift"
-            timestampString = "561508176.45834"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "request(url:method:parameters:headers:success:failure:completion:)"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "Loading(activate:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

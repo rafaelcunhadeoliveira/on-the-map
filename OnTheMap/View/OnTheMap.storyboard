@@ -116,18 +116,109 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="P6Y-gW-5pY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="fDZ-oT-7MH"/>
                     <connections>
                         <outlet property="activityIndicator" destination="3TY-ZS-U1z" id="jJ8-rc-Vzf"/>
                         <outlet property="emailTextField" destination="nyV-Pt-u0d" id="qxn-PI-T9T"/>
                         <outlet property="passwordTextField" destination="je9-Yj-L19" id="DHP-ra-LXq"/>
+                        <segue destination="aKi-hb-P7P" kind="show" identifier="LoginSegue" id="CWc-Oh-wiD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HTW-r2-Z7e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="96.799999999999997" y="163.26836581709148"/>
+            <point key="canvasLocation" x="1039.2" y="162.5615763546798"/>
+        </scene>
+        <!--List-->
+        <scene sceneID="DeK-wC-43c">
+            <objects>
+                <viewController id="Due-sX-skd" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uf3-3P-o7A">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Y3F-49-iJI"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="List" selectedImage="icon_listview-selected" id="pNT-XO-p4g"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9lO-Za-Lyz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2836" y="471.42857142857144"/>
+        </scene>
+        <!--On the Map-->
+        <scene sceneID="igH-v5-Ui5">
+            <objects>
+                <viewController id="2Lg-vU-N58" customClass="MapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UXc-sk-eJk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="E5f-7h-gCp">
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="gxx-bg-hGI" firstAttribute="bottom" secondItem="E5f-7h-gCp" secondAttribute="bottom" id="Fx9-aH-2Gg"/>
+                            <constraint firstItem="E5f-7h-gCp" firstAttribute="leading" secondItem="gxx-bg-hGI" secondAttribute="leading" id="O67-nx-bgU"/>
+                            <constraint firstItem="gxx-bg-hGI" firstAttribute="trailing" secondItem="E5f-7h-gCp" secondAttribute="trailing" id="eJ5-4O-5gJ"/>
+                            <constraint firstItem="E5f-7h-gCp" firstAttribute="top" secondItem="gxx-bg-hGI" secondAttribute="top" id="ooo-xe-6pn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gxx-bg-hGI"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="On the Map" id="jGV-q2-exB">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="icon_pin" id="Veo-V0-aa8"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="u9C-B0-zpA"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="map" destination="E5f-7h-gCp" id="ghi-Di-d9z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ph1-yF-3Eu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3778.4000000000001" y="-183.25123152709361"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="iTF-ra-eWa">
+            <objects>
+                <tabBarController id="aKi-hb-P7P" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="E0h-X9-RwJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="kBg-ng-R7a" kind="relationship" relationship="viewControllers" id="Lii-n6-eVa"/>
+                        <segue destination="Due-sX-skd" kind="relationship" relationship="viewControllers" id="JYR-ZW-Ph8"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fCd-bc-goK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1887.2" y="162.5615763546798"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="5Ld-Ly-aDw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kBg-ng-R7a" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Map" selectedImage="icon_mapview-selected" id="0fj-so-PyT"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3sG-fq-k3R">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2Lg-vU-N58" kind="relationship" relationship="rootViewController" id="2IU-c8-26P"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AWE-OV-DYP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2836" y="-183.25123152709361"/>
         </scene>
     </scenes>
     <resources>
+        <image name="icon_listview-selected" width="75" height="50"/>
+        <image name="icon_mapview-selected" width="75" height="50"/>
+        <image name="icon_pin" width="24" height="24"/>
         <image name="logo-u" width="62" height="62"/>
     </resources>
 </document>

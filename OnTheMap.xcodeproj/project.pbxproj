@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		5308DC58215C006000351DA2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5308DC57215C006000351DA2 /* Constants.swift */; };
+		53205DE4217A7212007231A8 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53205DE3217A7212007231A8 /* MapViewController.swift */; };
+		53205DE6217A729D007231A8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53205DE5217A729D007231A8 /* User.swift */; };
+		53205DE8217A738E007231A8 /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53205DE7217A738E007231A8 /* StudentLocation.swift */; };
 		534987A12177C9B40054784B /* LoginServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534987A02177C9B40054784B /* LoginServiceManager.swift */; };
 		534F5081216EA65D0021A41C /* JSONResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F5080216EA65D0021A41C /* JSONResponse.swift */; };
 		53A442F1215ADAC5007791EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A442F0215ADAC5007791EF /* AppDelegate.swift */; };
@@ -18,7 +21,7 @@
 		53A442FE215ADAC9007791EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53A442FC215ADAC9007791EF /* LaunchScreen.storyboard */; };
 		53A44309215ADACA007791EF /* OnTheMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A44308215ADACA007791EF /* OnTheMapTests.swift */; };
 		53A44314215ADACA007791EF /* OnTheMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A44313215ADACA007791EF /* OnTheMapUITests.swift */; };
-		53A44327215ADE5E007791EF /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53A44326215ADE5E007791EF /* Login.storyboard */; };
+		53A44327215ADE5E007791EF /* OnTheMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53A44326215ADE5E007791EF /* OnTheMap.storyboard */; };
 		53A4432B215AE836007791EF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A4432A215AE836007791EF /* LoginViewController.swift */; };
 		53DF8865216D105200C00462 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DF8864216D105200C00462 /* Enums.swift */; };
 		53DF8867216D10E600C00462 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DF8866216D10E600C00462 /* ServiceManager.swift */; };
@@ -45,6 +48,9 @@
 
 /* Begin PBXFileReference section */
 		5308DC57215C006000351DA2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		53205DE3217A7212007231A8 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		53205DE5217A729D007231A8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		53205DE7217A738E007231A8 /* StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
 		534987A02177C9B40054784B /* LoginServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceManager.swift; sourceTree = "<group>"; };
 		534F5080216EA65D0021A41C /* JSONResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONResponse.swift; sourceTree = "<group>"; };
 		53A442ED215ADAC5007791EF /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,7 +67,7 @@
 		53A4430F215ADACA007791EF /* OnTheMapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnTheMapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		53A44313215ADACA007791EF /* OnTheMapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnTheMapUITests.swift; sourceTree = "<group>"; };
 		53A44315215ADACA007791EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		53A44326215ADE5E007791EF /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		53A44326215ADE5E007791EF /* OnTheMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnTheMap.storyboard; sourceTree = "<group>"; };
 		53A4432A215AE836007791EF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		53DF8864216D105200C00462 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		53DF8866216D10E600C00462 /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
@@ -101,6 +107,22 @@
 				534987A02177C9B40054784B /* LoginServiceManager.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		53205DE1217A71CC007231A8 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				53A4432A215AE836007791EF /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		53205DE2217A71D5007231A8 /* LoggedArea */ = {
+			isa = PBXGroup;
+			children = (
+				53205DE3217A7212007231A8 /* MapViewController.swift */,
+			);
+			path = LoggedArea;
 			sourceTree = "<group>";
 		};
 		53A442E4215ADAC5007791EF = {
@@ -161,7 +183,9 @@
 		53A44321215ADCEA007791EF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				53A44325215ADE22007791EF /* Login */,
+				53205DE2217A71D5007231A8 /* LoggedArea */,
+				53205DE1217A71CC007231A8 /* Login */,
+				53A44326215ADE5E007791EF /* OnTheMap.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -174,6 +198,8 @@
 				53DF8868216D136F00C00462 /* ServiceError.swift */,
 				53DF886A216D17E700C00462 /* EnvironmentVariables.swift */,
 				534F5080216EA65D0021A41C /* JSONResponse.swift */,
+				53205DE5217A729D007231A8 /* User.swift */,
+				53205DE7217A738E007231A8 /* StudentLocation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -192,15 +218,6 @@
 				53A442F0215ADAC5007791EF /* AppDelegate.swift */,
 			);
 			path = Application;
-			sourceTree = "<group>";
-		};
-		53A44325215ADE22007791EF /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				53A44326215ADE5E007791EF /* Login.storyboard */,
-				53A4432A215AE836007791EF /* LoginViewController.swift */,
-			);
-			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,7 +324,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				53A44327215ADE5E007791EF /* Login.storyboard in Resources */,
+				53A44327215ADE5E007791EF /* OnTheMap.storyboard in Resources */,
 				53A442FE215ADAC9007791EF /* LaunchScreen.storyboard in Resources */,
 				53A442FB215ADAC9007791EF /* Assets.xcassets in Resources */,
 				53A442F6215ADAC5007791EF /* Main.storyboard in Resources */,
@@ -335,13 +352,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53205DE6217A729D007231A8 /* User.swift in Sources */,
 				53DF8869216D136F00C00462 /* ServiceError.swift in Sources */,
+				53205DE8217A738E007231A8 /* StudentLocation.swift in Sources */,
 				534987A12177C9B40054784B /* LoginServiceManager.swift in Sources */,
 				53A442F9215ADAC5007791EF /* OnTheMap.xcdatamodeld in Sources */,
 				53DF886B216D17E700C00462 /* EnvironmentVariables.swift in Sources */,
 				53A442F3215ADAC5007791EF /* ViewController.swift in Sources */,
 				53A4432B215AE836007791EF /* LoginViewController.swift in Sources */,
 				53A442F1215ADAC5007791EF /* AppDelegate.swift in Sources */,
+				53205DE4217A7212007231A8 /* MapViewController.swift in Sources */,
 				53DF8865216D105200C00462 /* Enums.swift in Sources */,
 				53DF8867216D10E600C00462 /* ServiceManager.swift in Sources */,
 				534F5081216EA65D0021A41C /* JSONResponse.swift in Sources */,

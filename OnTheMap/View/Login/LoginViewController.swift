@@ -24,6 +24,7 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.subscribeForKeyboardNotifications()
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -54,13 +55,39 @@ class LoginViewController: UIViewController {
         return keyboardSize.cgRectValue.height/2
     }
 
+    // MARK: - Models
+
+    func DialogHelper(error: ServiceError) {
+        let alert = UIAlertController(title: "Ops, Something went wrong", message: error.error, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
+        self.present(alert, animated: true)
+    }
+
+    func Loading(activate: Bool) {
+        self.view.isUserInteractionEnabled = !activate
+        if activate {
+            activityIndicator.startAnimating()
+            self.view.alpha = 0.5
+        } else {
+            activityIndicator.stopAnimating()
+            self.view.alpha = 1
+        }
+    }
+
     // MARK: - Validations
 
     func validate() -> Bool{
+        var error = ServiceError.init(code: "404", error: "")
         guard let userName = emailTextField.text, !userName.isEmpty else {
+            error.error = "User Name field is empty!"
+            DialogHelper(error: error)
             return false
         }
         guard let password = passwordTextField.text, !password.isEmpty else {
+            error.error = "Password field is empty!"
+            DialogHelper(error: error)
             return false
         }
         return true
@@ -68,15 +95,16 @@ class LoginViewController: UIViewController {
     
     // MARK: - Service
     fileprivate func requestLogin(userName: String, password: String){
-        activityIndicator.startAnimating()
+        Loading(activate: true)
         LoginServiceManager.sharedInstance().login(userName: userName,
                                                    password: password,
                                                    success: { (_key) in
-                                                    
+                                                    self.performSegue(withIdentifier: "LoginSegue", sender: nil)
         }, failure: {(error) in
-            self.activityIndicator.stopAnimating()
+            let error = ServiceError.init(code: "404", error: "Invalid user or password")
+            self.DialogHelper(error: error)
         }, completion: {
-            self.activityIndicator.stopAnimating()
+            self.Loading(activate: false)
         })
     }
 
