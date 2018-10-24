@@ -11,6 +11,10 @@
 		53205DE4217A7212007231A8 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53205DE3217A7212007231A8 /* MapViewController.swift */; };
 		53205DE6217A729D007231A8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53205DE5217A729D007231A8 /* User.swift */; };
 		53205DE8217A738E007231A8 /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53205DE7217A738E007231A8 /* StudentLocation.swift */; };
+		53205DEF217FABC2007231A8 /* StudentServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53205DEE217FABC2007231A8 /* StudentServiceManager.swift */; };
+		53205DF1217FB63F007231A8 /* StudentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53205DF0217FB63E007231A8 /* StudentListViewController.swift */; };
+		53205DF4217FB88C007231A8 /* StudentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53205DF3217FB88C007231A8 /* StudentTableViewCell.swift */; };
+		53205DF6217FC143007231A8 /* LocationServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53205DF5217FC143007231A8 /* LocationServiceManager.swift */; };
 		534987A12177C9B40054784B /* LoginServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534987A02177C9B40054784B /* LoginServiceManager.swift */; };
 		534F5081216EA65D0021A41C /* JSONResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F5080216EA65D0021A41C /* JSONResponse.swift */; };
 		53A442F1215ADAC5007791EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A442F0215ADAC5007791EF /* AppDelegate.swift */; };
@@ -51,6 +55,10 @@
 		53205DE3217A7212007231A8 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		53205DE5217A729D007231A8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		53205DE7217A738E007231A8 /* StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
+		53205DEE217FABC2007231A8 /* StudentServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentServiceManager.swift; sourceTree = "<group>"; };
+		53205DF0217FB63E007231A8 /* StudentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentListViewController.swift; sourceTree = "<group>"; };
+		53205DF3217FB88C007231A8 /* StudentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentTableViewCell.swift; sourceTree = "<group>"; };
+		53205DF5217FC143007231A8 /* LocationServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationServiceManager.swift; sourceTree = "<group>"; };
 		534987A02177C9B40054784B /* LoginServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceManager.swift; sourceTree = "<group>"; };
 		534F5080216EA65D0021A41C /* JSONResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONResponse.swift; sourceTree = "<group>"; };
 		53A442ED215ADAC5007791EF /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +113,8 @@
 			children = (
 				53DF8866216D10E600C00462 /* ServiceManager.swift */,
 				534987A02177C9B40054784B /* LoginServiceManager.swift */,
+				53205DEE217FABC2007231A8 /* StudentServiceManager.swift */,
+				53205DF5217FC143007231A8 /* LocationServiceManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -120,9 +130,19 @@
 		53205DE2217A71D5007231A8 /* LoggedArea */ = {
 			isa = PBXGroup;
 			children = (
+				53205DF2217FB672007231A8 /* Cells */,
 				53205DE3217A7212007231A8 /* MapViewController.swift */,
+				53205DF0217FB63E007231A8 /* StudentListViewController.swift */,
 			);
 			path = LoggedArea;
+			sourceTree = "<group>";
+		};
+		53205DF2217FB672007231A8 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				53205DF3217FB88C007231A8 /* StudentTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		53A442E4215ADAC5007791EF = {
@@ -352,6 +372,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53205DF6217FC143007231A8 /* LocationServiceManager.swift in Sources */,
 				53205DE6217A729D007231A8 /* User.swift in Sources */,
 				53DF8869216D136F00C00462 /* ServiceError.swift in Sources */,
 				53205DE8217A738E007231A8 /* StudentLocation.swift in Sources */,
@@ -364,6 +385,9 @@
 				53205DE4217A7212007231A8 /* MapViewController.swift in Sources */,
 				53DF8865216D105200C00462 /* Enums.swift in Sources */,
 				53DF8867216D10E600C00462 /* ServiceManager.swift in Sources */,
+				53205DF1217FB63F007231A8 /* StudentListViewController.swift in Sources */,
+				53205DF4217FB88C007231A8 /* StudentTableViewCell.swift in Sources */,
+				53205DEF217FABC2007231A8 /* StudentServiceManager.swift in Sources */,
 				534F5081216EA65D0021A41C /* JSONResponse.swift in Sources */,
 				5308DC58215C006000351DA2 /* Constants.swift in Sources */,
 			);

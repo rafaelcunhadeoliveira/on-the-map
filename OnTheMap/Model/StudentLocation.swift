@@ -45,3 +45,8 @@ struct StudentLocation {
         return "[No Name]"
     }
 }
+
+struct AllStudents {
+    var allStudents = [StudentLocation]()
+    static var sharedInstance = AllStudents()
+}

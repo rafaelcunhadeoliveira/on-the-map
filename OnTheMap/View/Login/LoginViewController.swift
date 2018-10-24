@@ -24,7 +24,7 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.subscribeForKeyboardNotifications()
-
+        mock()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -106,6 +106,13 @@ class LoginViewController: UIViewController {
         }, completion: {
             self.Loading(activate: false)
         })
+    }
+
+    // MARK: - Mock
+
+    func mock() {
+        emailTextField.text = "cunhadeoliveirarafael@gmail.com"
+        passwordTextField.text = "Galodoido1313"
     }
 
     // MARK: - Actions

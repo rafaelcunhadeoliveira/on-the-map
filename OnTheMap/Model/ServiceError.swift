@@ -22,4 +22,8 @@ struct ServiceError {
         self.code = code
         self.error = error
     }
+
+    init() {
+        self.init(code: "", error: "")
+    }
 }

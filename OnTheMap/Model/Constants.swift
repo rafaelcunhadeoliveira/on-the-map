@@ -16,10 +16,16 @@ class Constants {
         }
         return Singleton.sharedInstance
     }
-    public let udacityUrl =  "https://www.udacity.com/"
-    public let apiSession =  "api/session"
     
     class func getSessionURL() -> String {
-        return Constants.sharedInstance().udacityUrl + Constants.sharedInstance().apiSession
+        return EnvironmentVariables.sharedInstance().baseUdacityUrl + EnvironmentVariables.sharedInstance().sessionUrl
+    }
+
+    class func userInformationUrl(key: String) -> String {
+        return EnvironmentVariables.sharedInstance().baseUdacityUrl + "/api/users/\(key)"
+    }
+    
+    class func studentsLocationUrl() -> String {
+        return EnvironmentVariables.sharedInstance().baseParseUrl + EnvironmentVariables.sharedInstance().locationUrl
     }
 }
