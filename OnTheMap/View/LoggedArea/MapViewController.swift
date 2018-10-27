@@ -55,6 +55,7 @@ class MapViewController: UIViewController {
     }
 
     func getCurrentLocation(success: @escaping ()-> Void) {
+        Loading(activate: true)
         LocationServiceManager.sharedInstance().getUserLocation(success: { (locations) in
             DispatchQueue.main.async {
                 self.Loading(activate: false)
@@ -85,6 +86,8 @@ class MapViewController: UIViewController {
         getCurrentLocation {
             if self.pinExists {
                 self.DialogHelper(type: .overwriteError)
+            } else {
+                self.nextViewController()
             }
         }
     }
@@ -111,6 +114,18 @@ class MapViewController: UIViewController {
         
     }
 
+    // MARK: - Methods
+
+    func nextViewController() {
+        if let viewController = UIStoryboard(name: Constants.storyboardName(),
+                                             bundle: nil).instantiateViewController(withIdentifier: "PinViewController")
+            as? PinViewController {
+            if let navigator = navigationController {
+                navigator.pushViewController(viewController, animated: true)
+            }
+        }
+    }
+
     // MARK: - Models
     
     func DialogHelper(error: ServiceError = ServiceError(), type: errorType = .basicError) {
@@ -128,7 +143,7 @@ class MapViewController: UIViewController {
     func overwriteDialogHelper() -> UIAlertController {
         let alert = UIAlertController(title: "", message: "You have already posted a student location. Would you like to overwrite your current location?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Overwrite", style: .default, handler: {(action) in
-            //TODO
+            self.nextViewController()
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         return alert

@@ -98,7 +98,8 @@ class LoginViewController: UIViewController {
         Loading(activate: true)
         LoginServiceManager.sharedInstance().login(userName: userName,
                                                    password: password,
-                                                   success: { (_key) in
+                                                   success: { (key) in
+                                                    User.current.key = key
                                                     self.performSegue(withIdentifier: "LoginSegue", sender: nil)
         }, failure: {(error) in
             let error = ServiceError.init(code: "404", error: "Invalid user or password")

@@ -21,7 +21,7 @@ class LocationServiceManager {
                          failure: @escaping (_ error: ServiceError) -> Void,
                          completed: @escaping ()-> Void) {
         
-        let url = Constants.studentsLocationUrl() + "?where={\"uniqueKey\":\"\(User.current.key!)\"}&order=-updatedAt"
+        let url = Constants.studentsLocationUrl() + "?where={\"uniqueKey\":\"\(User.current.key!)\"}"
         
         ServiceManager.sharedInstance().request(url: url, method: .get, success: { (data) in
             

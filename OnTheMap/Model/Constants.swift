@@ -28,4 +28,8 @@ class Constants {
     class func studentsLocationUrl() -> String {
         return EnvironmentVariables.sharedInstance().baseParseUrl + EnvironmentVariables.sharedInstance().locationUrl
     }
+
+    class func storyboardName() -> String {
+        return "OnTheMap"
+    }
 }
