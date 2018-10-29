@@ -11,8 +11,10 @@ import MapKit
 
 class PinViewController: UIViewController {
 
+    @IBOutlet weak var linkTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
     var location: CLLocation?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
@@ -20,19 +22,24 @@ class PinViewController: UIViewController {
 
     func getLocation() {
         let geoCoder = CLGeocoder()
-        let error = ServiceError(code: "404", error: "Location not found")
+        let locationError = ServiceError(code: "404", error: "Location not found")
+        let LinkError = ServiceError(code: "404", error: "Please, insert a link")
         guard let address = locationTextField.text else {
-            DialogHelper(error: error)
+            DialogHelper(error: locationError)
             return
         }
         geoCoder.geocodeAddressString(address, completionHandler: { (placemarks, _) in
             guard let placemarks = placemarks,
                 let location = placemarks.first?.location else {
-                    self.DialogHelper(error: error)
+                    self.DialogHelper(error: locationError)
                     return
             }
             self.location = location
-            self.performSegue(withIdentifier: "goToFindLocation", sender: nil)
+            if (self.linkTextField.text) != nil {
+                self.performSegue(withIdentifier: "goToFindLocation", sender: nil)
+            } else {
+                self.DialogHelper(error: LinkError)
+            }
         })
     }
 
@@ -45,7 +52,8 @@ class PinViewController: UIViewController {
         if segue.identifier == "goToFindLocation" {
             let vc = segue.destination as? FindLocationViewController
             vc?.addressPin = location
+            vc?.link = linkTextField.text ?? ""
+            vc?.location = locationTextField.text ?? ""
         }
     }
 }
-

@@ -110,7 +110,7 @@ class MapViewController: UIViewController {
     func validate() -> Bool{
         let currentStudent = AllStudents.sharedInstance.allStudents.filter{
             $0.uniqueKey == User.current.key}
-        return currentStudent.isEmpty
+        return !currentStudent.isEmpty
     }
 
     // MARK: - Methods
