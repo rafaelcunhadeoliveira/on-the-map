@@ -33,6 +33,8 @@
 		53DF8867216D10E600C00462 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DF8866216D10E600C00462 /* ServiceManager.swift */; };
 		53DF8869216D136F00C00462 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DF8868216D136F00C00462 /* ServiceError.swift */; };
 		53DF886B216D17E700C00462 /* EnvironmentVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DF886A216D17E700C00462 /* EnvironmentVariables.swift */; };
+		9EADEC082186CA9400E0D636 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EADEC072186CA9400E0D636 /* ViewControllerExtension.swift */; };
+		9EADEC0A2186CAA000E0D636 /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EADEC092186CAA000E0D636 /* TextFieldExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +87,8 @@
 		53DF8866216D10E600C00462 /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
 		53DF8868216D136F00C00462 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 		53DF886A216D17E700C00462 /* EnvironmentVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentVariables.swift; sourceTree = "<group>"; };
+		9EADEC072186CA9400E0D636 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
+		9EADEC092186CAA000E0D636 /* TextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +223,7 @@
 		53A44322215ADCFD007791EF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9EADEC062186CA6E00E0D636 /* Extensions */,
 				5308DC57215C006000351DA2 /* Constants.swift */,
 				53DF8864216D105200C00462 /* Enums.swift */,
 				53DF8868216D136F00C00462 /* ServiceError.swift */,
@@ -244,6 +249,15 @@
 				53A442F0215ADAC5007791EF /* AppDelegate.swift */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		9EADEC062186CA6E00E0D636 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9EADEC072186CA9400E0D636 /* ViewControllerExtension.swift */,
+				9EADEC092186CAA000E0D636 /* TextFieldExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,6 +394,7 @@
 			files = (
 				53205DF6217FC143007231A8 /* LocationServiceManager.swift in Sources */,
 				53205DE6217A729D007231A8 /* User.swift in Sources */,
+				9EADEC082186CA9400E0D636 /* ViewControllerExtension.swift in Sources */,
 				53DF8869216D136F00C00462 /* ServiceError.swift in Sources */,
 				53205DE8217A738E007231A8 /* StudentLocation.swift in Sources */,
 				534987A12177C9B40054784B /* LoginServiceManager.swift in Sources */,
@@ -394,6 +409,7 @@
 				53DF8865216D105200C00462 /* Enums.swift in Sources */,
 				53DF8867216D10E600C00462 /* ServiceManager.swift in Sources */,
 				53205DF1217FB63F007231A8 /* StudentListViewController.swift in Sources */,
+				9EADEC0A2186CAA000E0D636 /* TextFieldExtension.swift in Sources */,
 				53205DF4217FB88C007231A8 /* StudentTableViewCell.swift in Sources */,
 				53205DEF217FABC2007231A8 /* StudentServiceManager.swift in Sources */,
 				534F5081216EA65D0021A41C /* JSONResponse.swift in Sources */,

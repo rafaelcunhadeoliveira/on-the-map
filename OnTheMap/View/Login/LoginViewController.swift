@@ -13,7 +13,6 @@ class LoginViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - life cycle
     override func viewDidLoad() {
@@ -55,27 +54,6 @@ class LoginViewController: UIViewController {
         return keyboardSize.cgRectValue.height/2
     }
 
-    // MARK: - Models
-
-    func DialogHelper(error: ServiceError) {
-        let alert = UIAlertController(title: "Ops, Something went wrong", message: error.error, preferredStyle: .alert)
-        
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        
-        self.present(alert, animated: true)
-    }
-
-    func Loading(activate: Bool) {
-        self.view.isUserInteractionEnabled = !activate
-        if activate {
-            activityIndicator.startAnimating()
-            self.view.alpha = 0.5
-        } else {
-            activityIndicator.stopAnimating()
-            self.view.alpha = 1
-        }
-    }
-
     // MARK: - Validations
 
     func validate() -> Bool{
@@ -102,10 +80,15 @@ class LoginViewController: UIViewController {
                                                     User.current.key = key
                                                     self.performSegue(withIdentifier: "LoginSegue", sender: nil)
         }, failure: {(error) in
+            DispatchQueue.main.async {
+                self.Loading(activate: false)
+            }
             let error = ServiceError.init(code: "404", error: "Invalid user or password")
             self.DialogHelper(error: error)
         }, completion: {
-            self.Loading(activate: false)
+            DispatchQueue.main.async {
+                self.Loading(activate: false)
+            }
         })
     }
 
@@ -125,24 +108,5 @@ class LoginViewController: UIViewController {
 
     @IBAction func signUp(_ sender: Any) {
         
-    }
-}
-extension LoginViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        view.endEditing(true)
-        view.frame.origin.y = 0
-        return false
-    }
-}
-extension UIViewController {
-    func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-    
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-        view.frame.origin.y = 0
     }
 }

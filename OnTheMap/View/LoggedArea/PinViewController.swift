@@ -7,24 +7,45 @@
 //
 
 import UIKit
+import MapKit
 
 class PinViewController: UIViewController {
 
+    @IBOutlet weak var locationTextField: UITextField!
+    var location: CLLocation?
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
+    }
 
-        // Do any additional setup after loading the view.
+    func getLocation() {
+        let geoCoder = CLGeocoder()
+        let error = ServiceError(code: "404", error: "Location not found")
+        guard let address = locationTextField.text else {
+            DialogHelper(error: error)
+            return
+        }
+        geoCoder.geocodeAddressString(address, completionHandler: { (placemarks, _) in
+            guard let placemarks = placemarks,
+                let location = placemarks.first?.location else {
+                    self.DialogHelper(error: error)
+                    return
+            }
+            self.location = location
+            self.performSegue(withIdentifier: "goToFindLocation", sender: nil)
+        })
+    }
+
+    
+    @IBAction func findOnTheMap(_ sender: Any) {
+        getLocation()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "goToFindLocation" {
+            let vc = segue.destination as? FindLocationViewController
+            vc?.addressPin = location
+        }
     }
-    */
-
 }
+

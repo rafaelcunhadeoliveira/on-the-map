@@ -12,7 +12,6 @@ import MapKit
 class MapViewController: UIViewController {
 
     @IBOutlet weak var map: MKMapView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var pinExists: Bool = false
     
     // MARK: - life cycle
@@ -83,12 +82,10 @@ class MapViewController: UIViewController {
     }
     
     @IBAction func insertPinButton(_ sender: Any) {
-        getCurrentLocation {
-            if self.pinExists {
-                self.DialogHelper(type: .overwriteError)
-            } else {
-                self.nextViewController()
-            }
+        if validate() {
+            self.DialogHelper(type: .overwriteError)
+        } else {
+            self.nextViewController()
         }
     }
     // MARK: - Map
@@ -110,8 +107,10 @@ class MapViewController: UIViewController {
 
     // MARK: - Validations
 
-    func validate() {
-        
+    func validate() -> Bool{
+        let currentStudent = AllStudents.sharedInstance.allStudents.filter{
+            $0.uniqueKey == User.current.key}
+        return currentStudent.isEmpty
     }
 
     // MARK: - Methods
@@ -148,16 +147,4 @@ class MapViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         return alert
     }
-    
-    func Loading(activate: Bool) {
-        self.view.isUserInteractionEnabled = !activate
-        if activate {
-            activityIndicator.startAnimating()
-            self.view.alpha = 0.5
-        } else {
-            activityIndicator.stopAnimating()
-            self.view.alpha = 1
-        }
-    }
-
 }

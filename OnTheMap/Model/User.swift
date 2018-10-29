@@ -16,9 +16,16 @@ struct User {
     var lastName: String?
     var key: String?
     var location: StudentLocation?
-    
+
     init() {
         
+    }
+
+    func fullName() -> String {
+        if let firstName = firstName, firstName != "", let lastName = lastName, lastName != "" {
+            return "\(firstName) \(lastName)"
+        }
+        return "[No Name]"
     }
     
     init(dictionary: [String : AnyObject]) {

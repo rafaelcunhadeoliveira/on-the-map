@@ -11,7 +11,6 @@ import UIKit
 class StudentListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -39,28 +38,6 @@ class StudentListViewController: UIViewController {
             self.Loading(activate: false)
         })
     }
-
-    // MARK: - Models
-    
-    func DialogHelper(error: ServiceError) {
-        let alert = UIAlertController(title: "Ops, Something went wrong", message: error.error, preferredStyle: .alert)
-        
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        
-        self.present(alert, animated: true)
-    }
-    
-    func Loading(activate: Bool) {
-        self.view.isUserInteractionEnabled = !activate
-        if activate {
-            activityIndicator.startAnimating()
-            self.view.alpha = 0.5
-        } else {
-            activityIndicator.stopAnimating()
-            self.view.alpha = 1
-        }
-    }
-    
 }
 
 extension StudentListViewController: UITableViewDataSource {

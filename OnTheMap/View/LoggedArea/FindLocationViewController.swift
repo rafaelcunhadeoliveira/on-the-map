@@ -7,24 +7,25 @@
 //
 
 import UIKit
+import MapKit
 
 class FindLocationViewController: UIViewController {
 
+    let regionRadius: CLLocationDistance = 1000
+    var addressPin: CLLocation? = nil
+
+    @IBOutlet weak var linkTextField: UITextField!
+    @IBOutlet weak var map: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        centerMapOnLocation(location: addressPin ?? CLLocation())
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func centerMapOnLocation(location: CLLocation) {
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
+                                                                  regionRadius, regionRadius)
+        map.setRegion(coordinateRegion, animated: true)
     }
-    */
+
 
 }
