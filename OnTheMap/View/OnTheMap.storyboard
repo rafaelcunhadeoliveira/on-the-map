@@ -13,23 +13,23 @@
         <!--Login View Controller-->
         <scene sceneID="GJz-Xs-QJQ">
             <objects>
-                <viewController id="FCY-5p-CGG" customClass="LoginViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="LoginViewController" storyboardIdentifier="LoginViewController" id="FCY-5p-CGG" customClass="LoginViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rEj-TZ-hfM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Gtp-Vf-JCz">
-                                <rect key="frame" x="112.5" y="50" width="150" height="180.5"/>
+                                <rect key="frame" x="112.5" y="50" width="150" height="150.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-u" translatesAutoresizingMaskIntoConstraints="NO" id="w8m-oa-AaS">
-                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="120"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="150" id="8cs-jt-TLt"/>
+                                            <constraint firstAttribute="height" constant="120" id="8cs-jt-TLt"/>
                                             <constraint firstAttribute="width" constant="150" id="Ax3-c3-jb3"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login to Udacity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mbb-53-eZq">
-                                        <rect key="frame" x="12.5" y="160" width="125" height="20.5"/>
+                                        <rect key="frame" x="12.5" y="130" width="125" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -37,7 +37,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="XRi-AK-PhP">
-                                <rect key="frame" x="77.5" y="270.5" width="220" height="180"/>
+                                <rect key="frame" x="77.5" y="240.5" width="220" height="180"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nyV-Pt-u0d">
                                         <rect key="frame" x="0.0" y="0.0" width="220" height="30"/>
@@ -150,7 +150,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qEW-Er-yHK">
-                                                    <rect key="frame" x="50" y="11" width="235" height="21"/>
+                                                    <rect key="frame" x="50" y="11" width="290" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -187,6 +187,11 @@
                         <viewLayoutGuide key="safeArea" id="Y3F-49-iJI"/>
                     </view>
                     <navigationItem key="navigationItem" id="w4Y-c8-sU0">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="Rm2-7Y-ouq">
+                            <connections>
+                                <action selector="logoutButton:" destination="Due-sX-skd" id="bZ3-dG-TTl"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem image="icon_refresh" id="9yI-zg-J73">
                                 <connections>
@@ -233,6 +238,11 @@
                         <viewLayoutGuide key="safeArea" id="gxx-bg-hGI"/>
                     </view>
                     <navigationItem key="navigationItem" title="On the Map" id="jGV-q2-exB">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="2s4-Uj-InO">
+                            <connections>
+                                <action selector="logoutButton:" destination="2Lg-vU-N58" id="yPg-RV-gty"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="refresh" id="u9C-B0-zpA">
                                 <connections>
@@ -367,7 +377,7 @@
                                 <rect key="frame" x="20" y="607" width="335" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Submit">
-                                    <color key="titleColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="submitLocation:" destination="i8e-0F-btN" eventType="touchUpInside" id="ETT-nW-TlT"/>

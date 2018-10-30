@@ -30,9 +30,21 @@ class StudentListViewController: UIViewController {
         if validate() {
             self.DialogHelper(type: .overwriteError)
         } else {
-            self.nextViewController()
+            self.nextViewController(isLogout: false)
         }
     }
+
+    @IBAction func logoutButton(_ sender: Any) {
+        self.Loading(activate: true)
+        StudentServiceManager.sharedInstance().logout(success: {() in
+            self.nextViewController(isLogout: true)
+        }, failure: {(error) in
+            self.DialogHelper(error: error)
+        }, completed: {
+            self.Loading(activate: false)
+        })
+    }
+    
 
     // MARK: - Validations
     
@@ -44,14 +56,14 @@ class StudentListViewController: UIViewController {
 
     // MARK: - Methods
     
-    func nextViewController() {
-        if let viewController = UIStoryboard(name: Constants.storyboardName(),
-                                             bundle: nil).instantiateViewController(withIdentifier: "PinViewController")
-            as? PinViewController {
-            if let navigator = navigationController {
-                navigator.pushViewController(viewController, animated: true)
-            }
+    func nextViewController(isLogout: Bool) {
+        let viewControllerString = isLogout ? "LoginViewController" : "PinViewController"
+        let viewController = UIStoryboard(name: Constants.storyboardName(),
+                                          bundle: nil).instantiateViewController(withIdentifier: viewControllerString)
+        if let navigator = navigationController {
+            navigator.pushViewController(viewController, animated: true)
         }
+        
     }
     
     // MARK: - Models
@@ -71,7 +83,7 @@ class StudentListViewController: UIViewController {
     func overwriteDialogHelper() -> UIAlertController {
         let alert = UIAlertController(title: "", message: "You have already posted a student location. Would you like to overwrite your current location?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Overwrite", style: .default, handler: {(action) in
-            self.nextViewController()
+            self.nextViewController(isLogout: false)
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         return alert

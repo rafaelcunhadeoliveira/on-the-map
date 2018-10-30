@@ -51,7 +51,7 @@ class MapViewController: UIViewController {
                 self.removeAllPins()
             }
         }, failure: {(serviceError) in
-            self.DialogDefinition(error: serviceError, type: .basicError)
+            self.DialogHelper(error: serviceError)
         }, completed: {
             self.Loading(activate: false)
         })
@@ -64,11 +64,24 @@ class MapViewController: UIViewController {
         getAllLocations()
     }
     
+    @IBAction func logoutButton(_ sender: Any) {
+        self.Loading(activate: true)
+        StudentServiceManager.sharedInstance().logout(success: {() in
+            self.Loading(activate: false)
+            self.nextViewController(isLogout: true)
+        }, failure: {(error) in
+            self.DialogHelper(error: error)
+        }, completed: {
+            self.Loading(activate: false)
+        })
+    }
+
+    
     @IBAction func insertPinButton(_ sender: Any) {
         if validate() {
-            self.DialogDefinition(type: .overwriteError)
+            self.overwriteDialogHelper()
         } else {
-            self.nextViewController()
+            self.nextViewController(isLogout: false)
         }
     }
     // MARK: - Map
@@ -98,30 +111,26 @@ class MapViewController: UIViewController {
 
     // MARK: - Methods
 
-    func nextViewController() {
-        if let viewController = UIStoryboard(name: Constants.storyboardName(),
-                                             bundle: nil).instantiateViewController(withIdentifier: "PinViewController")
-            as? PinViewController {
+    func nextViewController(isLogout: Bool) {
+        let viewControllerString = isLogout ? "LoginViewController" : "PinViewController"
+        let viewController = UIStoryboard(name: Constants.storyboardName(),
+                                          bundle: nil).instantiateViewController(withIdentifier: viewControllerString)
+        if isLogout {
+            self.present(viewController, animated: false, completion: nil)
+        } else {
             if let navigator = navigationController {
                 navigator.pushViewController(viewController, animated: true)
             }
         }
+        
     }
 
     // MARK: - Models
-    
-    func DialogDefinition(error: ServiceError = ServiceError(), type: errorType = .basicError) {
-        if type == .basicError {
-            self.DialogHelper(error: error)
-        } else {
-            overwriteDialogHelper()
-        }
-    }
 
     func overwriteDialogHelper() {
         let alert = UIAlertController(title: "", message: "You have already posted a student location. Would you like to overwrite your current location?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Overwrite", style: .default, handler: {(action) in
-            self.nextViewController()
+            self.nextViewController(isLogout: false)
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         self.present(alert, animated: true)

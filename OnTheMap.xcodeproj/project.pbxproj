@@ -18,7 +18,6 @@
 		534987A12177C9B40054784B /* LoginServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534987A02177C9B40054784B /* LoginServiceManager.swift */; };
 		534F5081216EA65D0021A41C /* JSONResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F5080216EA65D0021A41C /* JSONResponse.swift */; };
 		53A442F1215ADAC5007791EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A442F0215ADAC5007791EF /* AppDelegate.swift */; };
-		53A442F3215ADAC5007791EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A442F2215ADAC5007791EF /* ViewController.swift */; };
 		53A442F9215ADAC5007791EF /* OnTheMap.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 53A442F7215ADAC5007791EF /* OnTheMap.xcdatamodeld */; };
 		53A442FB215ADAC9007791EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53A442FA215ADAC9007791EF /* Assets.xcassets */; };
 		53A442FE215ADAC9007791EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53A442FC215ADAC9007791EF /* LaunchScreen.storyboard */; };
@@ -66,7 +65,6 @@
 		534F5080216EA65D0021A41C /* JSONResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONResponse.swift; sourceTree = "<group>"; };
 		53A442ED215ADAC5007791EF /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53A442F0215ADAC5007791EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		53A442F2215ADAC5007791EF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		53A442F8215ADAC5007791EF /* OnTheMap.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OnTheMap.xcdatamodel; sourceTree = "<group>"; };
 		53A442FA215ADAC9007791EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53A442FD215ADAC9007791EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -180,7 +178,6 @@
 				53A44323215ADD03007791EF /* Controller */,
 				53A44322215ADCFD007791EF /* Model */,
 				53A44321215ADCEA007791EF /* View */,
-				53A442F2215ADAC5007791EF /* ViewController.swift */,
 				53A442FA215ADAC9007791EF /* Assets.xcassets */,
 				53A442FC215ADAC9007791EF /* LaunchScreen.storyboard */,
 				53A442F7215ADAC5007791EF /* OnTheMap.xcdatamodeld */,
@@ -396,7 +393,6 @@
 				534987A12177C9B40054784B /* LoginServiceManager.swift in Sources */,
 				53A442F9215ADAC5007791EF /* OnTheMap.xcdatamodeld in Sources */,
 				53DF886B216D17E700C00462 /* EnvironmentVariables.swift in Sources */,
-				53A442F3215ADAC5007791EF /* ViewController.swift in Sources */,
 				53B50D0121826E7B00AEAB00 /* FindLocationViewController.swift in Sources */,
 				53B50CFF21826E6800AEAB00 /* PinViewController.swift in Sources */,
 				53A4432B215AE836007791EF /* LoginViewController.swift in Sources */,
