@@ -84,7 +84,7 @@ class StudentListViewController: UIViewController {
         Loading(activate: true)
         StudentServiceManager.sharedInstance().getAllStudentsLocation(success: {(studentsLocation) in
             AllStudents.sharedInstance.allStudents.removeAll()
-            AllStudents.sharedInstance.allStudents = studentsLocation.sorted(by: { $0.fullName() < $1.fullName() })
+            AllStudents.sharedInstance.allStudents = studentsLocation
             DispatchQueue.main.async {
                 self.Loading(activate: false)
                 self.tableView.reloadData()

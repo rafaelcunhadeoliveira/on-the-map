@@ -51,30 +51,9 @@ class MapViewController: UIViewController {
                 self.removeAllPins()
             }
         }, failure: {(serviceError) in
-            self.DialogHelper(error: serviceError, type: .basicError)
+            self.DialogDefinition(error: serviceError, type: .basicError)
         }, completed: {
             self.Loading(activate: false)
-        })
-    }
-
-    func getCurrentLocation(success: @escaping ()-> Void) {
-        Loading(activate: true)
-        LocationServiceManager.sharedInstance().getUserLocation(success: { (locations) in
-            DispatchQueue.main.async {
-                self.Loading(activate: false)
-            }
-            self.pinExists = User.current.location != nil
-            if let location = locations.first{
-                User.current.location = location
-            }
-            success()
-            
-        }, failure: { (errorResponse) in
-            DispatchQueue.main.async {
-                self.Loading(activate: false)
-            }
-            self.DialogHelper(error: errorResponse, type: .basicError)
-        }, completed: {
         })
     }
 
@@ -87,7 +66,7 @@ class MapViewController: UIViewController {
     
     @IBAction func insertPinButton(_ sender: Any) {
         if validate() {
-            self.DialogHelper(type: .overwriteError)
+            self.DialogDefinition(type: .overwriteError)
         } else {
             self.nextViewController()
         }
@@ -131,24 +110,20 @@ class MapViewController: UIViewController {
 
     // MARK: - Models
     
-    func DialogHelper(error: ServiceError = ServiceError(), type: errorType = .basicError) {
-        let alert = type == .basicError ? basicDialogHelper(error: error) : overwriteDialogHelper()
-        self.present(alert, animated: true)
+    func DialogDefinition(error: ServiceError = ServiceError(), type: errorType = .basicError) {
+        if type == .basicError {
+            self.DialogHelper(error: error)
+        } else {
+            overwriteDialogHelper()
+        }
     }
 
-    func basicDialogHelper(error: ServiceError) -> UIAlertController {
-        let alert = UIAlertController(title: "Ops, Something went wrong", message: error.error, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-    
-        return alert
-    }
-
-    func overwriteDialogHelper() -> UIAlertController {
+    func overwriteDialogHelper() {
         let alert = UIAlertController(title: "", message: "You have already posted a student location. Would you like to overwrite your current location?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Overwrite", style: .default, handler: {(action) in
             self.nextViewController()
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
-        return alert
+        self.present(alert, animated: true)
     }
 }

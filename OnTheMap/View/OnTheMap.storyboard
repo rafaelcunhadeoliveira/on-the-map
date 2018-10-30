@@ -187,16 +187,18 @@
                         <viewLayoutGuide key="safeArea" id="Y3F-49-iJI"/>
                     </view>
                     <navigationItem key="navigationItem" id="w4Y-c8-sU0">
-                        <barButtonItem key="leftBarButtonItem" image="icon_addpin" id="ewX-1H-scf">
-                            <connections>
-                                <action selector="addPin:" destination="Due-sX-skd" id="Beq-rO-8P9"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="icon_refresh" id="9yI-zg-J73">
-                            <connections>
-                                <action selector="RefreshPressed:" destination="Due-sX-skd" id="Ivj-ob-09x"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="icon_refresh" id="9yI-zg-J73">
+                                <connections>
+                                    <action selector="RefreshPressed:" destination="Due-sX-skd" id="Ivj-ob-09x"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="icon_addpin" id="ewX-1H-scf">
+                                <connections>
+                                    <action selector="addPin:" destination="Due-sX-skd" id="Beq-rO-8P9"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="F1b-pr-MIT" id="xuJ-I5-eUl"/>
@@ -231,16 +233,18 @@
                         <viewLayoutGuide key="safeArea" id="gxx-bg-hGI"/>
                     </view>
                     <navigationItem key="navigationItem" title="On the Map" id="jGV-q2-exB">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="icon_addpin" id="Veo-V0-aa8">
-                            <connections>
-                                <action selector="insertPinButton:" destination="2Lg-vU-N58" id="1xP-VM-nsS"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="u9C-B0-zpA">
-                            <connections>
-                                <action selector="RefreshButton:" destination="2Lg-vU-N58" id="fVu-Wc-fI3"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="refresh" id="u9C-B0-zpA">
+                                <connections>
+                                    <action selector="RefreshButton:" destination="2Lg-vU-N58" id="fVu-Wc-fI3"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="icon_addpin" id="Veo-V0-aa8">
+                                <connections>
+                                    <action selector="insertPinButton:" destination="2Lg-vU-N58" id="1xP-VM-nsS"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="map" destination="E5f-7h-gCp" id="ghi-Di-d9z"/>
