@@ -13,11 +13,16 @@ class PinViewController: UIViewController {
 
     @IBOutlet weak var linkTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
-    var location: CLLocation?
+    var location: CLPlacemark?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
     }
 
     func getLocation() {
@@ -30,7 +35,7 @@ class PinViewController: UIViewController {
         }
         geoCoder.geocodeAddressString(address, completionHandler: { (placemarks, _) in
             guard let placemarks = placemarks,
-                let location = placemarks.first?.location else {
+                let location = placemarks.first else {
                     self.DialogHelper(error: locationError)
                     return
             }

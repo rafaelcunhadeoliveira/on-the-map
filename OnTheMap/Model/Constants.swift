@@ -32,4 +32,8 @@ class Constants {
     class func storyboardName() -> String {
         return "OnTheMap"
     }
+
+    class func udacityRegister() -> String {
+        return "https://auth.udacity.com/sign-up?locale=pt-br&next=https%3A%2F%2Fbr.udacity.com"
+    }
 }

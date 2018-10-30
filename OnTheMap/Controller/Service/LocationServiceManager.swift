@@ -16,7 +16,7 @@ class LocationServiceManager {
         }
         return Singleton.sharedInstance
     }
-
+    
     func getUserLocation(success: @escaping (_ locations: [StudentLocation]) -> Void,
                          failure: @escaping (_ error: ServiceError) -> Void,
                          completed: @escaping ()-> Void) {
@@ -45,12 +45,12 @@ class LocationServiceManager {
     }
     
     func createPin(map: String,
-                        mediaURL: String,
-                        latitude: Double,
-                        longitude: Double,
-                        success: @escaping () -> Void,
-                        failure: @escaping (_ error: ServiceError) -> Void,
-                        completed: @escaping ()-> Void) {
+                   mediaURL: String,
+                   latitude: Double,
+                   longitude: Double,
+                   success: @escaping () -> Void,
+                   failure: @escaping (_ error: ServiceError) -> Void,
+                   completed: @escaping ()-> Void) {
         
         let parameters: [String: Any] = [
             "uniqueKey" : User.current.key!,
@@ -74,7 +74,7 @@ class LocationServiceManager {
         
         ServiceManager.sharedInstance().request(url: url, method: method!, parameters: parameters,
                                                 success: { (data) in
-            success()
+                                                    success()
         }, failure: { (erroResponse) in
             failure(erroResponse)
         }, completion: {

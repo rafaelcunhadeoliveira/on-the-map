@@ -78,6 +78,7 @@ class LoginViewController: UIViewController {
                                                    password: password,
                                                    success: { (key) in
                                                     User.current.key = key
+                                                    self.getUserInformation(key: key)
                                                     self.performSegue(withIdentifier: "LoginSegue", sender: nil)
         }, failure: {(error) in
             DispatchQueue.main.async {
@@ -89,6 +90,17 @@ class LoginViewController: UIViewController {
             DispatchQueue.main.async {
                 self.Loading(activate: false)
             }
+        })
+    }
+
+    fileprivate func getUserInformation(key: String) {
+        StudentServiceManager.sharedInstance().getUserInformation(key: key,
+                                                                  success: {(user) in
+                                                                    User.current = user
+        }, failure:{(error) in
+            self.DialogHelper(error: error)
+        }, completed: {
+            //nothing to do
         })
     }
 
@@ -107,6 +119,7 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func signUp(_ sender: Any) {
-        
+        guard let url = URL.init(string: Constants.udacityRegister()) else { return }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 }

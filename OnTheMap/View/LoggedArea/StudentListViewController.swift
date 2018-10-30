@@ -15,11 +15,68 @@ class StudentListViewController: UIViewController {
         super.viewDidLoad()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+        getAllLocations()
+    }
+
     // MARK: - Actions
 
     @IBAction func RefreshPressed(_ sender: Any) {
         getAllLocations()
     }
+
+    @IBAction func addPin(_ sender: Any) {
+        if validate() {
+            self.DialogHelper(type: .overwriteError)
+        } else {
+            self.nextViewController()
+        }
+    }
+
+    // MARK: - Validations
+    
+    func validate() -> Bool{
+        let currentStudent = AllStudents.sharedInstance.allStudents.filter{
+            $0.uniqueKey == User.current.key}
+        return !currentStudent.isEmpty
+    }
+
+    // MARK: - Methods
+    
+    func nextViewController() {
+        if let viewController = UIStoryboard(name: Constants.storyboardName(),
+                                             bundle: nil).instantiateViewController(withIdentifier: "PinViewController")
+            as? PinViewController {
+            if let navigator = navigationController {
+                navigator.pushViewController(viewController, animated: true)
+            }
+        }
+    }
+    
+    // MARK: - Models
+    
+    func DialogHelper(error: ServiceError = ServiceError(), type: errorType = .basicError) {
+        let alert = type == .basicError ? basicDialogHelper(error: error) : overwriteDialogHelper()
+        self.present(alert, animated: true)
+    }
+    
+    func basicDialogHelper(error: ServiceError) -> UIAlertController {
+        let alert = UIAlertController(title: "Ops, Something went wrong", message: error.error, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
+        return alert
+    }
+    
+    func overwriteDialogHelper() -> UIAlertController {
+        let alert = UIAlertController(title: "", message: "You have already posted a student location. Would you like to overwrite your current location?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Overwrite", style: .default, handler: {(action) in
+            self.nextViewController()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        return alert
+    }
+    
 
     // MARK: - Service
 
@@ -27,7 +84,7 @@ class StudentListViewController: UIViewController {
         Loading(activate: true)
         StudentServiceManager.sharedInstance().getAllStudentsLocation(success: {(studentsLocation) in
             AllStudents.sharedInstance.allStudents.removeAll()
-            AllStudents.sharedInstance.allStudents = studentsLocation
+            AllStudents.sharedInstance.allStudents = studentsLocation.sorted(by: { $0.fullName() < $1.fullName() })
             DispatchQueue.main.async {
                 self.Loading(activate: false)
                 self.tableView.reloadData()

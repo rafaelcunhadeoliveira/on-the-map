@@ -12,30 +12,73 @@ import MapKit
 class FindLocationViewController: UIViewController {
 
     let regionRadius: CLLocationDistance = 10000
-    var addressPin: CLLocation? = nil
+    var addressPin: CLPlacemark? = nil
     var location: String = ""
     var link: String = ""
     @IBOutlet weak var map: MKMapView!
 
+    //MARK: - life cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        centerMapOnLocation(location: addressPin ?? CLLocation())
+        centerMapOnLocation(placeMark: addressPin ?? CLPlacemark())
         insertPin()
     }
 
+    //MARK: - Methods
+
     func insertPin() {
-        guard let coordinate = addressPin?.coordinate else { return }
+        guard let address = addressPin,
+            let coordinate = address.location?.coordinate else { return }
         let pin = MKPointAnnotation()
         pin.coordinate = coordinate
-        pin.title = location
+        pin.title = address.name
         pin.subtitle = link
         map.addAnnotation(pin)
     }
 
-    func centerMapOnLocation(location: CLLocation) {
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
+    func centerMapOnLocation(placeMark: CLPlacemark) {
+        guard let location = placeMark.location?.coordinate else { return }
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location,
                                                                   regionRadius, regionRadius)
         map.setRegion(coordinateRegion, animated: true)
+    }
+
+    // MARK: - Actions
+
+    @IBAction func submitLocation(_ sender: Any) {
+        registerPin()
+    }
+
+    // MARK: - Service
+
+    func registerPin() {
+        self.Loading(activate: true)
+        guard let name = addressPin?.name,
+        let latitude = addressPin?.location?.coordinate.latitude,
+        let longitude = addressPin?.location?.coordinate.longitude else { return }
+        LocationServiceManager.sharedInstance().createPin(map: name,
+                                                          mediaURL: link,
+                                                          latitude: latitude,
+                                                          longitude: longitude,
+                                                          success: { () in
+                                                            self.backToMap()
+        },
+                                                          failure: {(error) in
+                                                            self.DialogHelper(error: error)
+        },
+                                                          completed: {
+                                                            self.Loading(activate: false)
+        })
+    }
+
+    func backToMap() {
+        let alert = UIAlertController(title: "", message: "Confirm your location?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: {(action) in
+            self.navigationController?.popToRootViewController(animated: true)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        self.present(alert, animated: true)
     }
 }
 
