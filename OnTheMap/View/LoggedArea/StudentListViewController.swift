@@ -37,8 +37,10 @@ class StudentListViewController: UIViewController {
     @IBAction func logoutButton(_ sender: Any) {
         self.Loading(activate: true)
         StudentServiceManager.sharedInstance().logout(success: {() in
-            self.nextViewController(isLogout: true)
+            self.Loading(activate: false)
+            self.tabBarController?.dismiss(animated: true, completion: nil)
         }, failure: {(error) in
+            self.Loading(activate: false)
             self.DialogHelper(error: error)
         }, completed: {
             self.Loading(activate: false)
@@ -57,13 +59,11 @@ class StudentListViewController: UIViewController {
     // MARK: - Methods
     
     func nextViewController(isLogout: Bool) {
-        let viewControllerString = isLogout ? "LoginViewController" : "PinViewController"
         let viewController = UIStoryboard(name: Constants.storyboardName(),
-                                          bundle: nil).instantiateViewController(withIdentifier: viewControllerString)
+                                          bundle: nil).instantiateViewController(withIdentifier: "PinViewController")
         if let navigator = navigationController {
             navigator.pushViewController(viewController, animated: true)
         }
-        
     }
     
     // MARK: - Models
@@ -120,5 +120,17 @@ extension StudentListViewController: UITableViewDataSource {
         cell.StudentNameLabel.text = AllStudents.sharedInstance.allStudents[indexPath.row].fullName()
         cell.selectionStyle = .none
         return cell
+    }
+}
+
+extension StudentListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let currentStudent = AllStudents.sharedInstance.allStudents[indexPath.row]
+        if let string = currentStudent.mediaUrl {
+            let urlString = string.contains("http") ? string : "http://" + string
+            if let url = URL(string: urlString) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
     }
 }

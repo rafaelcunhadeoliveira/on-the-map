@@ -67,12 +67,16 @@ class MapViewController: UIViewController {
     @IBAction func logoutButton(_ sender: Any) {
         self.Loading(activate: true)
         StudentServiceManager.sharedInstance().logout(success: {() in
-            self.Loading(activate: false)
-            self.nextViewController(isLogout: true)
+            DispatchQueue.main.async {
+                self.Loading(activate: false)
+            }
+            self.tabBarController?.dismiss(animated: true, completion: nil)
         }, failure: {(error) in
             self.DialogHelper(error: error)
         }, completed: {
-            self.Loading(activate: false)
+            DispatchQueue.main.async {
+                self.Loading(activate: false)
+            }
         })
     }
 
@@ -112,17 +116,11 @@ class MapViewController: UIViewController {
     // MARK: - Methods
 
     func nextViewController(isLogout: Bool) {
-        let viewControllerString = isLogout ? "LoginViewController" : "PinViewController"
         let viewController = UIStoryboard(name: Constants.storyboardName(),
-                                          bundle: nil).instantiateViewController(withIdentifier: viewControllerString)
-        if isLogout {
-            self.present(viewController, animated: false, completion: nil)
-        } else {
-            if let navigator = navigationController {
-                navigator.pushViewController(viewController, animated: true)
-            }
+                                          bundle: nil).instantiateViewController(withIdentifier: "PinViewController")
+        if let navigator = navigationController {
+            navigator.pushViewController(viewController, animated: true)
         }
-        
     }
 
     // MARK: - Models

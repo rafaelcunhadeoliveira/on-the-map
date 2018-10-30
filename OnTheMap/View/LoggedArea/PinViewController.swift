@@ -29,6 +29,7 @@ class PinViewController: UIViewController {
         let geoCoder = CLGeocoder()
         let locationError = ServiceError(code: "404", error: "Location not found")
         let LinkError = ServiceError(code: "404", error: "Please, insert a link")
+        Loading(activate: true)
         guard let address = locationTextField.text else {
             DialogHelper(error: locationError)
             return
@@ -40,6 +41,7 @@ class PinViewController: UIViewController {
                     return
             }
             self.location = location
+            self.Loading(activate: false)
             if (self.linkTextField.text) != nil {
                 self.performSegue(withIdentifier: "goToFindLocation", sender: nil)
             } else {
