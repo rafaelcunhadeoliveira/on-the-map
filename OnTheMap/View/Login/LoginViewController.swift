@@ -84,7 +84,6 @@ class LoginViewController: UIViewController {
             DispatchQueue.main.async {
                 self.Loading(activate: false)
             }
-            let error = ServiceError.init(code: "404", error: "Invalid user or password")
             self.DialogHelper(error: error)
         }, completion: {
             DispatchQueue.main.async {
